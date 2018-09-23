@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CharacterSelectContainer from './components/containers/CharacterSelectContainer';
+import CharacterSelectContainer from './components/containers/CharacterSelectContainer.js';
 
 class App extends Component {
   render() {
