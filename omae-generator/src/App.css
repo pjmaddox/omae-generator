@@ -26,3 +26,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ----------------------- */
+/*        split            */
+/* ----------------------- */
+.characterTab {
+  border-top: #222 1px solid;
+  border-right: #222 1px solid;
+  border-left: #222 1px solid;
+  background-color: white;
+  color: black;
+}
+
+.characterTab.selectedTab {
+  background-color: lightgray;
+  color: black;
+}

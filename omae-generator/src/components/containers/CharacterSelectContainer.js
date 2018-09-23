@@ -1,15 +1,15 @@
 import React from "react";
-import { connect, dispatch } from "react-redux";
+import { connect } from "react-redux";
 import CharacterSelect from "../CharacterSelect.js";
 import CharacterTab from "../characterTab.js";
 import { selectCharacter } from "../../actions/actions.js";
 import _ from 'lodash';
 
 const getChildren = (chars, selectedId) => {
-    _.map(chars, (x, index) => {
+    _.map(chars, (x) => {
         <CharacterTab 
+            id={x.id}
             name={x.name}
-            onClick={() => dispatch(selectCharacter(x.id))}
             isSelected={x.id==selectedId}
         />
     });
@@ -17,13 +17,13 @@ const getChildren = (chars, selectedId) => {
 
 const mapStateToProps = state => {
     return {
-        children: getChildren(state.characters, state.selectedCharacter)
+        chars: getChildren(state.characters, state.selectedCharacter)
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        //onClick: (id) => dispatch(selectCharacter(id))
+        onTabClick: (id) => dispatch(selectCharacter(id))
     };
 };
 

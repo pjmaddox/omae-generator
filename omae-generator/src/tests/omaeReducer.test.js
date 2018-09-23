@@ -6,21 +6,30 @@ import { SELECT_CHARACTER } from "../actions/actions";
 configure({adapter: new Adapter()});
 
 describe("characterSelect reducer", () => {
-    let fakeAction, fakePreviousState;
+    let fakeAction, fakePreviousState, expectedId;
     beforeEach(() => {
+        expectedId = 500;
         fakePreviousState = {
-            selectedCharacter: 1
+            selectedCharacter: expectedId
         };
         fakeAction = {
             type: SELECT_CHARACTER,
-            payload: { selectedCharacterId: 100 }
+            payload: { selectedCharacterId: expectedId }
         };
     });
-    it("should return 0 when called with no previous state", () => {
+    it("should return previous state when no valud action", () => {
         let expectedState = {
             selectedCharacter: 0
         };
         let result = omaeReducer(fakePreviousState, null);
         expect(result).toEqual(fakePreviousState);
     });
+    it("should return selectedCharacter as payload target", () => {
+        let expectedState = {
+            selectedCharacter: expectedId
+        };
+        let result = omaeReducer(fakePreviousState, fakeAction);
+        expect(result).toEqual(expectedState);
+    });
+    
 });
