@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CharacterTab from "../components/characterTab.js";
+import _ from "lodash";
 
 export default class CharacterSelect extends Component {
     render() {
-        let thing = _.map(chars, (x, index) => {
-            <CharacterTab 
+        let characterTabs = _.map(this.props.chars, (x, index) => {
+            return <CharacterTab 
                 key={x.id}
+                id={x.id}
                 name={x.name}
-                onClick={() => (onTabClick(x.id))}
-                isSelected={x.id==selectedId}
+                onClick={() => (this.props.onTabClick(x.id))}
+                isSelected={x.isSelected}
             />
         });
         return (
             <div className="characterSelectContainer">
-                { this.props.children }
+                {characterTabs}
             </div>
         );
     }
@@ -25,7 +28,5 @@ CharacterSelect.propTypes = {
         name: PropTypes.string.isRequired,
         isSelected: PropTypes.bool.isRequired
     })),
-    onTabClick: PropTypes.func.isRequired,
-    characterName: PropTypes.string.isRequired,
-    isSelected: PropTypes.bool.isRequired
+    onTabClick: PropTypes.func.isRequired
 };

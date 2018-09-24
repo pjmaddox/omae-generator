@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default class CharacterTab extends Component {
     render() {
         return (
-            <a onClick={this.props.onClick} className={"characterTab " + this.props.isSelected? "selectedTab" : ""}>
+            <a onClick={this.props.onClick} className={"characterTab" + this.props.isSelected? " selectedTab" : ""}>
               {this.props.name}  
             </a>
         );
