@@ -16,8 +16,21 @@ const selectCharacterReducer = (previousState = 0, action) => {
     }
 };
 
+const characterReducer = (previousState = [], action) => {
+    if (!action || !action.type || !action.type.payload || !action.type.payload.characterId)
+        reutrn previousState;
+        
+    switch(action.type) {
+
+        default:
+            return previousState;
+            break;
+    }
+}
+
 const OmaeReducer = combineReducers({
-    selectedCharacter: selectCharacterReducer
+    selectedCharacter: selectCharacterReducer,
+    characters: characterReducer
 });
 
 export default OmaeReducer;

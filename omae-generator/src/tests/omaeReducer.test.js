@@ -10,7 +10,8 @@ describe("characterSelect reducer", () => {
     beforeEach(() => {
         expectedId = 500;
         fakePreviousState = {
-            selectedCharacter: expectedId
+            selectedCharacter: expectedId,
+            characters: []
         };
         fakeAction = {
             type: SELECT_CHARACTER,
@@ -18,9 +19,6 @@ describe("characterSelect reducer", () => {
         };
     });
     it("should return previous state when no valud action", () => {
-        let expectedState = {
-            selectedCharacter: 0
-        };
         let result = omaeReducer(fakePreviousState, null);
         expect(result).toEqual(fakePreviousState);
     });
@@ -31,5 +29,31 @@ describe("characterSelect reducer", () => {
         let result = omaeReducer(fakePreviousState, fakeAction);
         expect(result).toEqual(expectedState);
     });
-    
+
+});
+
+
+describe("characters reducer", () => {
+    it("should return previous state when no action is given", () => {
+        let fakePreviousState = {
+            selectedCharacter: 200,
+            characters: [ { name: "Stroodle", id: 9122} ]
+        };
+        let result = omaeReducer(fakePreviousState, null);
+        expect(result).toEqual(fakePreviousState);
+    });
+
+    it("should return previous state when no valid actionType is given", () => {
+        let fakePreviousState = {
+            selectedCharacter: 200,
+            characters: [ { name: "Stroodle", id: 9122} ]
+        };
+        let fakeAction = { type: "KEBAB", payload: {  } };
+        let result = omaeReducer(fakePreviousState, fakeAction);
+        expect(result).toEqual(fakePreviousState);
+    });
+
+    it("should ", () => {
+
+    });
 });
