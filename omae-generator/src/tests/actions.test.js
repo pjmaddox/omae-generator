@@ -1,6 +1,6 @@
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { SELECT_CHARACTER, selectCharacter, addExistingCharacter } from "../actions/actions.js";
+import { SELECT_CHARACTER, selectCharacter, addExistingCharacter, ADD_EXISTING_CHARACTER, ADD_NEW_CHARACTER, addNewCharacter } from "../actions/actions.js";
 
 configure({adapter: new Adapter()});
 
@@ -37,6 +37,6 @@ describe("addNewCharacter", () => {
     });
     it("should return an object with an empty payload", () => {
         let result = addNewCharacter();
-        expect(result.payload).toBeNull();
+        expect(result.payload).toEqual({});
     });
 });
