@@ -154,7 +154,7 @@ describe("characters reducer", () => {
             
         });
         it("should assign baseline maximums to each stats for the character", () => {
-            
+            //TODO: Future development
         });
     });
 });

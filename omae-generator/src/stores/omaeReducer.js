@@ -23,6 +23,7 @@ const characterReducer = (previousState = [], action) => {
     switch(action.type) {
         case ADD_NEW_CHARACTER:
             let newCharacter = {
+                id: previousState.length+1,
                 name: "",
                 stats: {
                     body: { value: 1, abbreviation: "BOD" },
