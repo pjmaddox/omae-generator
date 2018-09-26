@@ -139,15 +139,13 @@ describe("characters reducer", () => {
         it("should create a magic object within the stats object with value set to 1 and abbreviation attributes", () => {
             let result = omaeReducer(fakePreviousState, fakeAction);
             let newCharStats = result.characters[result.characters.length-1].stats;
-            expect(newCharStats["magic"]).not.toBeNull();
-            expect(newCharStats["magic"].value).toEqual(0);
-            expect(newCharStats["magic"].abbreviation).toEqual("MAG");
+            expect(newCharStats.magic).not.toBeNull();
+            expect(newCharStats.magic.value).toEqual(0);
+            expect(newCharStats.magic.abbreviation).toEqual("MAG");
         });
         it("should create a essence object within the stats object with value set to 1 and abbreviation attributes", () => {
             let result = omaeReducer(fakePreviousState, fakeAction);
             let newCharStats = result.characters[result.characters.length-1].stats;
-            console.log(newCharStats.essence);
-            console.log(newCharStats);
             expect(newCharStats.essence).not.toBeNull();
             expect(newCharStats.essence.value).toEqual(5);
             expect(newCharStats.essence.abbreviation).toEqual("ESS");

@@ -25,19 +25,18 @@ const characterReducer = (previousState = [], action) => {
             let newCharacter = {
                 name: "",
                 stats: {
-                    body: { value: 1, abbreviaton: "BOD" },
-                    agility: { value: 1, abbreviaton: "AGI" },
-                    strength: { value: 1, abbreviaton: "STR" },
-                    intuition: { value: 1, abbreviaton: "INT" },
-                    willpower: { value: 1, abbreviaton: "WIL" },
-                    logic: { value: 1, abbreviaton: "LOG" },
-                    charisma: { value: 1, abbreviaton: "CHA" },
-                    edge: { value: 1, abbreviaton: "EDG" },
-                    essence: { value: 5, abbreviaton: "ESS" },
+                    body: { value: 1, abbreviation: "BOD" },
+                    agility: { value: 1, abbreviation: "AGI" },
+                    strength: { value: 1, abbreviation: "STR" },
+                    intuition: { value: 1, abbreviation: "INT" },
+                    willpower: { value: 1, abbreviation: "WIL" },
+                    logic: { value: 1, abbreviation: "LOG" },
+                    charisma: { value: 1, abbreviation: "CHA" },
+                    edge: { value: 1, abbreviation: "EDG" },
+                    essence: { value: 5, abbreviation: "ESS" },
                     magic: { value: 0, abbreviation: "MAG" }
                 }
             };
-            console.log([...previousState, newCharacter]);
             return [...previousState, newCharacter];
             break;
         default:
