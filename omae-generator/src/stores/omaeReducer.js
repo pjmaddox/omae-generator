@@ -10,6 +10,8 @@ const selectCharacterReducer = (previousState = 0, action) => {
         case SELECT_CHARACTER:
             return action.payload.selectedCharacterId;
             break;
+        case ADD_NEW_CHARACTER: 
+            //Can we do this?
         default:
             return previousState
             break;
