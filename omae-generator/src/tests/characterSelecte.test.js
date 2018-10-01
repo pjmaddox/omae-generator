@@ -12,13 +12,15 @@ describe("characterSelect", () => {
         characters = [
             { id: 121, name: "steve", isSelected: false},
             { id: 122, name: "olinhansonson", isSelected: false},
-            { id: 123, name: "jaeger", isSelected: true}
+            { id: 123, name: "jaeger", isSelected: true},
+            { id: 124, name: "", isSelected: false}
         ];
         mockOnClickFunction = jest.fn();
         expectedResultTabs = [
             <CharacterTab id={characters[0].id} name={characters[0].name} isSelected={characters[0].isSelected} onClick={mockOnClickFunction}/>,
             <CharacterTab id={characters[1].id} name={characters[1].name} isSelected={characters[1].isSelected} onClick={mockOnClickFunction}/>,
-            <CharacterTab id={characters[2].id} name={characters[2].name} isSelected={characters[2].isSelected} onClick={mockOnClickFunction}/>
+            <CharacterTab id={characters[2].id} name={characters[2].name} isSelected={characters[2].isSelected} onClick={mockOnClickFunction}/>,
+            <CharacterTab id={characters[3].id} name={characters[3].name} isSelected={characters[3].isSelected} onClick={mockOnClickFunction}/>
         ];
         shallowNode = shallow(<CharacterSelect chars={characters} onTabClick={mockOnClickFunction} />);
     });
@@ -33,6 +35,10 @@ describe("characterSelect", () => {
     it("should render a CharacterTab with the name of the character in it", () => {
         let result = shallowNode.find("CharacterTab").first();
         expect(result.props().name).toEqual(characters[0].name);
+    });
+    it("should render a CharacterTab with the name of 'New Character' when the name is the empty string", () => {
+        let result = shallowNode.find("CharacterTab")[3];
+        expect(result.props().name).toEqual("New Character");
     });
     it("should render a CharacterTab with the id of the character in it", () => {
         let result = shallowNode.find("CharacterTab").first();

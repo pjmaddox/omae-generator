@@ -9,7 +9,7 @@ const getChildren = (chars, selectedId) => {
     _.map(chars, (x) => {
         <CharacterTab 
             id={x.id}
-            name={x.name}
+            name={(x.name == "")? "New Character" : x.name}
             isSelected={x.id==selectedId}
         />
     });
