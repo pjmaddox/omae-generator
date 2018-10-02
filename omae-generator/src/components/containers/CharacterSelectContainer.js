@@ -6,12 +6,12 @@ import { selectCharacter } from "../../actions/actions.js";
 import _ from 'lodash';
 
 const getChildren = (chars, selectedId) => {
-    _.map(chars, (x) => {
-        <CharacterTab 
-            id={x.id}
-            name={(x.name == "")? "New Character" : x.name}
-            isSelected={x.id==selectedId}
-        />
+    return _.map(chars, (x) => {
+        return {
+            id:x.id,
+            name:(x.name == "")? "New Character" : x.name,
+            isSelected:x.id==selectedId
+        };
     });
 };
 

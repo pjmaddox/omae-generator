@@ -14,6 +14,7 @@ export default class CharacterSelect extends Component {
                 isSelected={x.isSelected}
             />
         });
+        console.log(characterTabs);
         return (
             <div className="characterSelectContainer">
                 {characterTabs}

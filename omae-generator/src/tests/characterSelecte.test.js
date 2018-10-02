@@ -37,8 +37,8 @@ describe("characterSelect", () => {
         expect(result.props().name).toEqual(characters[0].name);
     });
     it("should render a CharacterTab with the name of 'New Character' when the name is the empty string", () => {
-        let result = shallowNode.find("CharacterTab")[3];
-        expect(result.props().name).toEqual("New Character");
+        let result = shallowNode.find("CharacterTab").get(3);
+        expect(result.props.name).toEqual("New Character");
     });
     it("should render a CharacterTab with the id of the character in it", () => {
         let result = shallowNode.find("CharacterTab").first();
